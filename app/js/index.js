@@ -1,4 +1,4 @@
-const VERSION_NUMBER = "v2022.12.11";
+const VERSION_NUMBER = "v2022.12.13";
 document.getElementById("version-number").innerHTML = VERSION_NUMBER;
 
 let perfLoggingDatabase;
@@ -180,6 +180,8 @@ function initializeCropper() {
         viewMode: 3,
         minContainerWidth: 1,
         minContainerHeight: 1,
+        autoCrop: true,
+        autoCropArea: 1,
         cropend() {
             overridePixelArray = new Array(targetResolution[0] * targetResolution[1] * 4).fill(null);
             overrideDepthPixelArray = new Array(targetResolution[0] * targetResolution[1] * 4).fill(null);
