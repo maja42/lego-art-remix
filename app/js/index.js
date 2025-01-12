@@ -2469,7 +2469,7 @@ async function generateInstructions() {
         let numParts = 1;
         for (var i = 0; i < totalPlates; i++) {
             await sleep(50);
-            if ((i + 1) % (isHighQuality ? 20 : 50) === 0) {
+            if ((i + 1) % (isHighQuality ? 35 : 100) === 0) {
                 addWaterMark(pdf, isHighQuality);
                 pdf.save(`Lego-Art-Remix-Instructions-Part-${numParts}.pdf`);
                 numParts++;
