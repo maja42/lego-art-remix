@@ -62,8 +62,26 @@ function drawPixelsOnCanvas(pixels, canvas) {
 
 function studMapToSortedColorList(studMap) {
     const result = Object.keys(studMap);
-    result.sort();
+    sortHexValues(result)
     return result;
+}
+
+function sortHexValues(hexColors) {
+    window.COLORS = hexColors
+    hexColors.sort((a, b) => {
+        const orderA = COLORS_BY_HEX[a]?.order;
+        const orderB = COLORS_BY_HEX[b]?.order;
+        if (!orderA || !orderB) {
+            if (!orderA && orderB) {
+                return -10000
+            }
+            if (orderA && !orderB) {
+                return 10000
+            }
+            return a.localeCompare(b);
+        }
+        return orderA - orderB
+    });
 }
 
 function getDiscreteDepthPixels(pixels, thresholds) {
@@ -182,7 +200,7 @@ function getUsedPixelsStudMap(inputPixels) {
 
 function studMapDifference(map1, map2) {
     const hexCodes = Array.from(new Set(studMapToSortedColorList(map1).concat(studMapToSortedColorList(map2))));
-    hexCodes.sort();
+    sortHexValues(hexCodes);
     const result = {};
     hexCodes.forEach((hexCode) => {
         result[hexCode] = (map1[hexCode] || 0) - (map2[hexCode] || 0);
@@ -1822,7 +1840,7 @@ function getVariablePixelWantedListXML(pixelColorMatrix, variablePixelPieceDimen
     });
 
     const usedPieces = Object.keys(pieceCounts);
-    usedPieces.sort();
+    sortHexValues(usedPieces);
     const items = usedPieces.map((keyString) => {
         const pieceKey = keyString.split("_");
         let pieceIDMap = PLATE_DIMENSIONS_TO_PART_ID;

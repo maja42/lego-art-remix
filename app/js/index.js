@@ -2256,7 +2256,8 @@ function runStep4(asyncCallback) {
             const usedColors = Object.keys(pieceCountsForTable);
             document.getElementById("step-4-distinct-color-count").innerHTML = usedColors.length.toString();
 
-            usedColors.sort();
+            sortHexValues(usedColors)
+
             usedColors.forEach((keyString) => {
                 const pieceKey = keyString.split("_");
                 const color = pieceKey[0];
@@ -2319,7 +2320,7 @@ function runStep4(asyncCallback) {
                     selectedStudMap
                 );
                 const usedColors = Object.keys(missingPixelsStudMap);
-                usedColors.sort();
+                sortHexValues(usedColors);
                 usedColors.forEach((color) => {
                     if (missingPixelsStudMap[color] > 0) {
                         missingPixelsExist = true;
