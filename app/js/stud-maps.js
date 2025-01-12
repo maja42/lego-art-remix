@@ -544,6 +544,14 @@ const tileHexToCount = {};
 availableTileHexes.forEach((hex) => {
     tileHexToCount[hex] = 99999;
 });
+
+tileHexToCount[COLOR_NAME_TO_HEX["A13 Light Flesh (13A)"]] = 1000
+tileHexToCount[COLOR_NAME_TO_HEX["A26 Flesh Red (13B)"]] = 1000
+tileHexToCount[COLOR_NAME_TO_HEX["A17 Medium Blue"]] = 700 // used for gopher image
+tileHexToCount[COLOR_NAME_TO_HEX["A20 Reddish Brown"]] = 600
+tileHexToCount[COLOR_NAME_TO_HEX["A14 Lime"]] = 300
+tileHexToCount[COLOR_NAME_TO_HEX["A24 Yellowish Green"]] = 300
+
 STUD_MAPS["all_tile_colors"] = {
     name: "All Tile Colors",
     officialName: "All Available Tile Colors",

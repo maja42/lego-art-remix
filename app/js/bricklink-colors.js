@@ -62,8 +62,7 @@ let ALL_BRICKLINK_SOLID_COLORS = [
 //  { "id": 75,    "name": "Speckle Black-Copper",         "hex": "#05131d", trans: false },
 //  { "id": 76,    "name": "Speckle DBGray-Silver",        "hex": "#6c6e68", trans: false },
     { "id": 77,    "name": "Light Pink",                   "hex": "#fecccf", trans: false },
-    { "id": 78001, "name": "Light Nougat A",               "hex": "#FECCB0", trans: false }, // prev. color value
-    { "id": 78002, "name": "Light Nougat B",               "hex": "#F6D7B3", trans: false }, // corrected color value
+    { "id": 78,     "name": "Light Nougat",                "hex": "#f6d7b3", trans: false },
     { "id": 79,    "name": "Milky White",                  "hex": "#ffffff", trans: false },
 //  { "id": 80,    "name": "Metallic Silver",              "hex": "#a5a9b4", trans: false },
 //  { "id": 81,    "name": "Metallic Green",               "hex": "#899b5f", trans: false },
@@ -268,11 +267,47 @@ let ALL_BRICKLINK_SOLID_COLORS = [
     { "id": 1137,  "name": "Sienna Brown",                 "hex": "#915c3c", trans: false },
     { "id": 1138,  "name": "Umber Brown",                  "hex": "#5e3f33", trans: false },
 //  { "id": 1139,  "name": "Opal Trans-Yellow",            "hex": "#f5cd2f", trans: true  },
+
+
+    //Ali Express colors, HEX-color determined via photo:
+    { "id": 99010,  "name": "A01 Black",              "hex": "#05131d", trans: false, order: 10, }, // 06
+    { "id": 99020,  "name": "A02 Blue",               "hex": "#0b408b", trans: false, order: 20, }, //
+    { "id": 99030,  "name": "A03 Bright Light Blue",  "hex": "#2173a5", trans: false, order: 30, }, // 40
+    { "id": 99040,  "name": "A04 Salmon",             "hex": "#fb7156", trans: false, order: 40, }, //
+    { "id": 99050,  "name": "A05 Dark Blue",          "hex": "#27314d", trans: false, order: 50, }, // 42
+    { "id": 99060,  "name": "A06 Dark Bluish Gray",   "hex": "#706c68", trans: false, order: 60, }, // 04
+    { "id": 99070,  "name": "A07 Dark Brown",         "hex": "#301c14", trans: false, order: 70, }, // 18
+    { "id": 99080,  "name": "A08 Dark Pink",          "hex": "#ce5373", trans: false, order: 80, }, // 28
+    { "id": 99090,  "name": "A09 Dark Red",           "hex": "#731f1c", trans: false, order: 90, }, //
+    { "id": 99100,  "name": "A10 Dark Tan",           "hex": "#957a49", trans: false, order: 100, }, // 20
+    { "id": 99110,  "name": "A11 Flat Silver",        "hex": "#a4a9b1", trans: false, order: 110, }, //
+    { "id": 99120,  "name": "A12 Light Bluish Gray",  "hex": "#a9a6a7", trans: false, order: 120, }, // 03
+//  { "id": 99131,  "name": "A13 Light Flesh (13A)",  "hex": "#d6a268", trans: false, order: 131, }, // 11
+//  { "id": 99132,  "name": "A26 Flesh Red (13B)",    "hex": "#d59d65", trans: false, order: 132, }, // 13
+//  { "id": 99131,  "name": "A13 Light Flesh (13A)",  "hex": "#feccb0", trans: false, order: 131, }, // 11
+//  { "id": 99132,  "name": "A26 Flesh Red (13B)",    "hex": "#f6d7b3", trans: false, order: 132, }, // 13
+    { "id": 99131,  "name": "A13 Light Flesh (13A)",  "hex": "#feccb0", trans: false, order: 130, }, // 11
+    { "id": 99132,  "name": "A26 Flesh Red (13B)",    "hex": "#fda98f", trans: false, order: 260, }, // 13
+    { "id": 99140,  "name": "A14 Lime",               "hex": "#829102", trans: false, order: 140, }, //
+    { "id": 99150,  "name": "A15 Magenta",            "hex": "#af2854", trans: false, order: 150, }, // 29
+    { "id": 99160,  "name": "A16 Medium Azure 1000",  "hex": "#6d98c4", trans: false, order: 160, }, // 37 Medium Azure 1000-pcs pack
+    { "id": 99170,  "name": "A17 Medium Blue",        "hex": "#9dbbd5", trans: false, order: 170, }, // 36
+    { "id": 99180,  "name": "A18 Nougat",             "hex": "#bf702a", trans: false, order: 180, }, //
+    { "id": 99190,  "name": "A19 Olive Green",        "hex": "#70632a", trans: false, order: 190, }, // 46
+    { "id": 99200,  "name": "A20 Reddish Brown",      "hex": "#59321e", trans: false, order: 200, }, //
+    { "id": 99210,  "name": "A21 Sand Blue",          "hex": "#6c7785", trans: false, order: 210, }, // 43
+    { "id": 99220,  "name": "A22 Tan",                "hex": "#d0b57b", trans: false, order: 220, }, // 19
+    { "id": 99230,  "name": "A23 White",              "hex": "#f6f1e9", trans: false, order: 230, }, // 01
+    { "id": 99240,  "name": "A24 Yellowish Green",    "hex": "#cbcd69", trans: false, order: 240, }, //
+    { "id": 99250,  "name": "A25 Medium Azure 300",   "hex": "#44a0c4", trans: false, order: 250, }, // Medium Azure 300-pcs pack
+
 ];
 
 const HEX_TO_COLOR_NAME = {};
+const COLOR_NAME_TO_HEX = {};
 ALL_BRICKLINK_SOLID_COLORS.forEach((color) => {
     HEX_TO_COLOR_NAME[color.hex] = color.name;
+    COLOR_NAME_TO_HEX[color.name] = color.hex;
 });
 
 const COLOR_NAME_TO_ID = {};
@@ -344,71 +379,100 @@ const KNOWN_BRICKLINK_STUD_COLOR_NAMES = [
 ];
 
 const KNOWN_BRICKLINK_TILE_COLOR_NAMES = [
-    // Taken from https://www.bricklink.com/v2/catalog/catalogitem.page?P=98138#T=C
-    "Black",
-    "Blue",
-    "Bright Green",
-    "Bright Light Blue",
-    "Bright Light Orange",
-    "Bright Light Yellow",
-    "Bright Pink",
-    "Coral",
-    "Dark Azure",
-    "Dark Blue",
-    "Dark Bluish Gray",
-    "Dark Brown",
-    "Dark Green",
-    "Dark Orange",
-    "Dark Pink",
-    "Dark Purple",
-    "Dark Red",
-    "Dark Tan",
-    "Dark Turquoise",
-    "Green",
-    "Lavender",
-    "Light Aqua",
-    "Light Bluish Gray",
-    "Light Nougat A",
-    "Light Nougat B",
-    "Lime",
-    "Magenta",
-    "Medium Azure",
-    "Medium Blue",
-    "Medium Lavender",
-    "Medium Nougat",
-    "Neon Yellow",
-    "Nougat",
-    "Olive Green",
-    "Orange",
-    "Red",
-    "Reddish Brown",
-    "Sand Blue",
-    "Tan",
-    "White",
-    "Yellow",
-    "Yellowish Green",
-//  "Trans-Black",
-//  "Trans-Bright Green",
-//  "Trans-Brown",
-//  "Trans-Clear",
-//  "Trans-Dark Blue",
-//  "Trans-Dark Pink",
-//  "Trans-Green",
-//  "Trans-Light Blue",
-//  "Trans-Orange",
-//  "Trans-Purple",
-//  "Trans-Red",
-//  "Trans-Yellow",
-    "Flat Silver",
-//  "Pearl Gold",
-//  "Satin Trans-Bright Green",
-//  "Satin Trans-Clear",
-//  "Satin Trans-Dark Blue",
-//  "Satin Trans-Light Blue",
-//  "Glow In Dark White",
-//  "Glitter Trans-Clear",
-//  "Glitter Trans-Dark Pink",
-//  "Glitter Trans-Light Blue",
+//     // Taken from https://www.bricklink.com/v2/catalog/catalogitem.page?P=98138#T=C
+//     "Black",
+//     "Blue",
+//     "Bright Green",
+//     "Bright Light Blue",
+//     "Bright Light Orange",
+//     "Bright Light Yellow",
+//     "Bright Pink",
+//     "Coral",
+//     "Dark Azure",
+//     "Dark Blue",
+//     "Dark Bluish Gray",
+//     "Dark Brown",
+//     "Dark Green",
+//     "Dark Orange",
+//     "Dark Pink",
+//     "Dark Purple",
+//     "Dark Red",
+//     "Dark Tan",
+//     "Dark Turquoise",
+//     "Green",
+//     "Lavender",
+//     "Light Aqua",
+//     "Light Bluish Gray",
+//     "Light Nougat A",
+//     "Light Nougat B",
+//     "Lime",
+//     "Magenta",
+//     "Medium Azure",
+//     "Medium Blue",
+//     "Medium Lavender",
+//     "Medium Nougat",
+//     "Neon Yellow",
+//     "Nougat",
+//     "Olive Green",
+//     "Orange",
+//     "Red",
+//     "Reddish Brown",
+//     "Sand Blue",
+//     "Tan",
+//     "White",
+//     "Yellow",
+//     "Yellowish Green",
+// //  "Trans-Black",
+// //  "Trans-Bright Green",
+// //  "Trans-Brown",
+// //  "Trans-Clear",
+// //  "Trans-Dark Blue",
+// //  "Trans-Dark Pink",
+// //  "Trans-Green",
+// //  "Trans-Light Blue",
+// //  "Trans-Orange",
+// //  "Trans-Purple",
+// //  "Trans-Red",
+// //  "Trans-Yellow",
+//     "Flat Silver",
+// //  "Pearl Gold",
+// //  "Satin Trans-Bright Green",
+// //  "Satin Trans-Clear",
+// //  "Satin Trans-Dark Blue",
+// //  "Satin Trans-Light Blue",
+// //  "Glow In Dark White",
+// //  "Glitter Trans-Clear",
+// //  "Glitter Trans-Dark Pink",
+// //  "Glitter Trans-Light Blue",
+
+
+    // Purchased colors:
+    "A01 Black",
+    "A02 Blue",
+    "A03 Bright Light Blue",
+    "A04 Salmon",
+    "A05 Dark Blue",
+    "A06 Dark Bluish Gray",
+    "A07 Dark Brown",
+    "A08 Dark Pink",
+    "A09 Dark Red",
+    "A10 Dark Tan",
+    "A11 Flat Silver",
+    "A12 Light Bluish Gray",
+    "A13 Light Flesh (13A)",
+    "A26 Flesh Red (13B)",
+    "A14 Lime",
+    "A15 Magenta",
+    "A16 Medium Azure 1000",
+    "A17 Medium Blue",
+    "A18 Nougat",
+    "A19 Olive Green",
+    "A20 Reddish Brown",
+    "A21 Sand Blue",
+    "A22 Tan",
+    "A23 White",
+    "A24 Yellowish Green",
+    "A25 Medium Azure 300",
 ];
 
 const BRICKLINK_STUD_COLORS = ALL_BRICKLINK_SOLID_COLORS.filter((color) =>
