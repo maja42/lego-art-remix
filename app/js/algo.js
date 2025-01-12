@@ -191,6 +191,7 @@ function studMapDifference(map1, map2) {
 }
 
 const TIEBREAKER_RATIO = 0.001;
+
 // corrects the input pixels to account for which studs are actually available
 function correctPixelsForAvailableStuds(
     anchorAlignedPixels,
@@ -268,9 +269,9 @@ function correctPixelsForAvailableStuds(
                 ((adjustedRow + adjustedImageWidth - adjustedCol) % 3) * TIEBREAKER_RATIO +
                 ((adjustedRow + adjustedCol) % 4) * TIEBREAKER_RATIO * TIEBREAKER_RATIO +
                 ((adjustedRow + adjustedImageWidth - adjustedCol) % 5) *
-                    TIEBREAKER_RATIO *
-                    TIEBREAKER_RATIO *
-                    TIEBREAKER_RATIO;
+                TIEBREAKER_RATIO *
+                TIEBREAKER_RATIO *
+                TIEBREAKER_RATIO;
         } else if (tieResolutionMethod === "alternatingnoisymod") {
             tiebreakFactor *=
                 ((adjustedRow + adjustedCol) % 2) +
@@ -540,7 +541,7 @@ function findReplacement(pixelRGB, remainingStudMap, colorDistanceFunction) {
         if (
             remainingStudMap[possibleReplacement] > 0 &&
             colorDistanceFunction(pixelRGB, hexToRgb(possibleReplacement)) <
-                colorDistanceFunction(pixelRGB, hexToRgb(replacement))
+            colorDistanceFunction(pixelRGB, hexToRgb(replacement))
         ) {
             replacement = possibleReplacement;
         }
@@ -661,7 +662,7 @@ function correctPixelsForAvailableStudsWithGreedyDynamicDithering(
                                 neighborhoodPixel.pixelRGB = [0, 1, 2].map((channel) =>
                                     clamp255(
                                         neighborhoodPixel.pixelRGB[channel] +
-                                            dequeuedPixelQuantizationError[channel] * errorWeight
+                                        dequeuedPixelQuantizationError[channel] * errorWeight
                                     )
                                 );
 
@@ -751,7 +752,7 @@ function alignPixelsWithTraditionalDithering(
                     forwardPixel.pixelRGB = [0, 1, 2].map((channel) =>
                         clamp255(
                             forwardPixel.pixelRGB[channel] +
-                                (currentPixelQuantizationError[channel] * kernelEntry.val) / kernelDenominator
+                            (currentPixelQuantizationError[channel] * kernelEntry.val) / kernelDenominator
                         )
                     );
                 }

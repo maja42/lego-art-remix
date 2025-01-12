@@ -1,4 +1,4 @@
-const VERSION_NUMBER = "v2022.12.13";
+const VERSION_NUMBER = "v2022.12.15";
 document.getElementById("version-number").innerHTML = VERSION_NUMBER;
 
 let perfLoggingDatabase;
@@ -1206,6 +1206,19 @@ document.getElementById("reset-contrast-button").addEventListener(
     },
     false
 );
+
+const COLORS_BY_NAME = {}
+const COLORS_BY_HEX = {}
+for (const colorDef of ALL_BRICKLINK_SOLID_COLORS) {
+    COLORS_BY_NAME[colorDef.name] = colorDef
+    COLORS_BY_HEX[colorDef.hex] = colorDef
+}
+
+for (const name of KNOWN_BRICKLINK_TILE_COLOR_NAMES) {
+    if (!COLORS_BY_NAME[name]) {
+        console.error("Unknown color definition for " + name)
+    }
+}
 
 function runStep1() {
     disableInteraction();
