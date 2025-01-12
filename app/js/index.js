@@ -2241,6 +2241,8 @@ function runStep4(asyncCallback) {
             }
 
             const usedColors = Object.keys(pieceCountsForTable);
+            document.getElementById("step-4-distinct-color-count").innerHTML = usedColors.length.toString();
+
             usedColors.sort();
             usedColors.forEach((keyString) => {
                 const pieceKey = keyString.split("_");
